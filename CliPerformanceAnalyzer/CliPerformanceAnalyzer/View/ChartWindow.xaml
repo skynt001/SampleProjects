@@ -1,0 +1,39 @@
+﻿<dx:ThemedWindow
+    x:Class="CliPerformanceAnalyzer.ChartWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+    Title="Visualization" Height="430" Width="600" WindowStartupLocation="CenterScreen"
+    >
+
+    <dxc:ChartControl Name="testDataChart" AnimationMode="OnDataChanged">
+        <dxc:ChartControl.Titles>
+            <dxc:Title Content="PERFORMANCE TEST RESULT" HorizontalAlignment="Center"/>
+        </dxc:ChartControl.Titles>
+        <dxc:ChartControl.CrosshairOptions>
+            <dxc:CrosshairOptions ShowArgumentLabels="True" ShowOutOfRangePoints="True" ShowValueLabels="True" ShowValueLine="True"/>
+        </dxc:ChartControl.CrosshairOptions>
+        <dxc:ChartControl.Legends>
+            <dxc:Legend HorizontalPosition="Left" VerticalPosition="Top" Orientation="Horizontal"/>
+        </dxc:ChartControl.Legends>
+        <dxc:XYDiagram2D SeriesItemsSource="{Binding Path=AnalysisResults}">
+            <dxc:XYDiagram2D.SeriesItemTemplate>
+                <DataTemplate>
+                    <dxc:BarSideBySideSeries2D DisplayName="{Binding Path=TargetName}"
+                                               DataSource="{Binding Path=Values}"
+                                               ArgumentDataMember="TestName"
+                                               ValueDataMember="Value"/>
+                </DataTemplate>
+            </dxc:XYDiagram2D.SeriesItemTemplate>
+            <dxc:XYDiagram2D.AxisY>
+                <dxc:AxisY2D>
+                    <dxc:AxisY2D.Title>
+                        <dxc:AxisTitle Content="Time (ms)"/>
+                    </dxc:AxisY2D.Title>
+                </dxc:AxisY2D>
+            </dxc:XYDiagram2D.AxisY>
+        </dxc:XYDiagram2D>
+    </dxc:ChartControl>
+    
+</dx:ThemedWindow>
