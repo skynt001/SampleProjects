@@ -18,3 +18,8 @@
 - Convert MDB to XML
 - Convert MDB to CSV
 
+### 3. CliPerformanceAnalyzer (C++ / CLI / WPF)
+- Native C++ layer와 .NET layer 간의 Logic 수행에 대한 성능 측정을 위함
+- CLI를 이용한 Facade 구조를 Design할 때 Legacy 운용성에 관련된 실험
+- Unmanaged(Native C++) 와 Managed(CLI / C#) 그리고 P/Invoke
+- Required DevExpress for Visualization(Chart) & MVVM
